@@ -40,6 +40,8 @@ for idx, row in tqdm(train.iterrows()):
                     modified_choices[3], 
                     label))
 
+df = pd.DataFrame(res, columns=cols)
+        
 test = pd.read_json('validation.json')
 
 res = []
@@ -66,8 +68,7 @@ for idx, row in tqdm(test.iterrows()):
                     modified_choices[2], 
                     modified_choices[3],
                     0))
-        
-df = pd.DataFrame(res, columns=cols)        
+              
 df_test = pd.DataFrame(res, columns=cols)
 
 df.to_csv('train.csv', index=False)
